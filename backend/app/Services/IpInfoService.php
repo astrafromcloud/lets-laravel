@@ -11,10 +11,6 @@ class IpInfoService
 
     public function getLocationInfo($ipAddress)
     {
-
-        $ipAddress = '87.76.45.177';
-
-
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . env('IPINFO_TOKEN')
         ])->get("{$this->baseUrl}{$ipAddress}/json");

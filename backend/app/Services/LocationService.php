@@ -20,10 +20,9 @@ class LocationService
 
     public function getLocationByIp($ipAddress)
     {
-        // First, check local database
+
         $location = $this->locationRepository->findByIpAddress($ipAddress);
 
-        // If not found, fetch from external service
         if (!$location) {
             $locationData = $this->ipInfoService->getLocationInfo($ipAddress);
 
